@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дорожный драйв</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hud">
+        <div class="hud-card hud-score">
+          <span class="label">Счёт</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="hud-card hud-best">
+          <span class="label">Рекорд</span>
+          <strong id="best">0</strong>
+        </div>
+        <div class="hud-card hud-speed">
+          <span class="label">Скорость</span>
+          <strong><span id="speed">0</span><small> км/ч</small></strong>
+        </div>
+      </header>
+
+      <div class="stage">
+        <canvas id="game" width="640" height="720" aria-label="Дорожный драйв"></canvas>
+      </div>
+
+      <p class="hint">← → или A D — смена полосы · пробел — старт / заново</p>
+
+      <section class="screen" id="start-screen">
+        <div class="start-art" aria-hidden="true">
+          <div class="start-sky"></div>
+          <div class="start-hills"></div>
+          <div class="start-road">
+            <div class="start-dash"></div>
+          </div>
+          <div class="start-car"></div>
+        </div>
+        <div class="screen-card start-card">
+          <p class="kicker">АРКАДНАЯ ГОНКА</p>
+          <h1>Дорожный драйв</h1>
+          <p class="lead">Три полосы, встречный поток и разгон без остановки.</p>
+          <button type="button" class="btn btn-start" id="start-btn">СТАРТ</button>
+          <p class="screen-hint">Управление: стрелки или A / D</p>
+        </div>
+      </section>
+
+      <section class="screen is-hidden" id="crash-screen">
+        <div class="screen-card crash-card">
+          <p class="kicker crash-kicker">АВАРИЯ</p>
+          <h2>Столкновение</h2>
+          <div class="crash-stats">
+            <div>
+              <span>Счёт</span>
+              <b id="crash-score">0</b>
+            </div>
+            <div>
+              <span>Рекорд</span>
+              <b id="crash-best">0</b>
+            </div>
+          </div>
+          <button type="button" class="btn btn-retry" id="retry-btn">Играть снова</button>
+          <p class="screen-hint">Или нажми пробел</p>
+        </div>
+      </section>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
